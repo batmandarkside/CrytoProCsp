@@ -16,6 +16,7 @@ import {
   CObjectId,
   CREATE_REQUEST
 } from './constants'
+import cryptoProPlugin from './cadesplugin_api'
 
 import { decimalToHexString } from './utils'
 
@@ -85,7 +86,7 @@ export const getCertSync = (certBase64: string): string => {
  *
  * @param certBase64
  */
-export const getCertAsync = (certBase64: string): Promise< * > => (
+export const getCertAsync = (certBase64: string): Promise<*> => (
   window.cadesplugin.async_spawn(function * (): Generator<*, *, *> { // eslint-disable-line func-names
     let cert = null
     try {
@@ -460,7 +461,7 @@ export function createPKCS10SyncRequest ({ulk: {branchName, email, cityName, nam
  * обертка над CryptoPro плагином с вызовом разных методов  SYNC и ASYNC
  */
 const CryptoProService = {
-  pluginInfo (): Promise< * > {
+  pluginInfo (): Promise<*> {
     try {
       const result = isPluginAsync()
         ? pluginInfoAsync()
@@ -471,7 +472,7 @@ const CryptoProService = {
     }
   },
 
-  createDetachedSign (doc: SignTypeParams, signer: string): Promise< * > {
+  createDetachedSign (doc: SignTypeParams, signer: string): Promise<*> {
     const result = (isPluginAsync()
       ? signAsync(doc, signer)
       : Promise.resolve(signSync(doc, signer)))
@@ -481,28 +482,33 @@ const CryptoProService = {
     })
   },
 
-  findCert (certBase64: string): Promise< * > {
+  findCert (certBase64: string): Promise<*> {
     return isPluginAsync()
       ? getCertAsync(certBase64)
       : Promise.resolve(getCertSync(certBase64))
   },
 
-  signer (cert: string): Promise< * > {
+  signer (cert: string): Promise<*> {
     return isPluginAsync()
       ? signerAsync(cert)
       : Promise.resolve(signerSync(cert))
   },
 
-  isOnToken (cert: TypePrivateKey): Promise< * > {
+  isOnToken (cert: TypePrivateKey): Promise<*> {
     return isPluginAsync()
       ? isOnTokenAsync(cert)
       : Promise.resolve(isOnTokenSync(cert))
   },
 
-  createPKCS10Request (data: TypeUlk, conf: TypeCryptoServiceConf): Promise< * > {
+  createPKCS10Request (data: TypeUlk, conf: TypeCryptoServiceConf): Promise<*> {
     return isPluginAsync()
       ? createPKCS10AsyncRequest(data, conf)
       : Promise.resolve(createPKCS10SyncRequest(data, conf))
+  },
+
+  checkPluginWorking (): boolean {
+    const loadPlugin = cryptoProPlugin()
+    return loadPlugin.checkPluginWorking()
   }
 }
 
