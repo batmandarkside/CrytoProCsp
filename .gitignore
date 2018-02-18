@@ -1,0 +1,8 @@
+.DS_Store
+.idea/
+.yarnrc
+.npmrc
+yarn.lock
+coverage/
+node_modules/
+*.log*
