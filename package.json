@@ -1,16 +1,16 @@
 {
   "name": "crypto-pro-csp",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "CryptoProCsp",
   "main": "lib/cryptopro_csp.js",
   "scripts": {
     "prepare": "yarn run flow && npm run compile",
-    "run:compile": "rm -rf ./lib/ && babel  --plugins=add-module-exports --presets es2015,stage-0 -d lib/ src/",
+    "run:compile": "rm -rf ./lib/ && babel  --plugins=add-module-exports,transform-async-to-generator --presets es2015,stage-0 -d lib/ src/",
     "compile": "export NODE_ENV=production && export BABEL_ENV=production && npm run run:compile",
     "test": "NODE_ENV=development jest --no-cache"
   },
-  "publishConfig":{
-    "registry":"https://artifactory.raiffeisen.ru/artifactory/api/npm/elbrus-d-npm"
+  "publishConfig": {
+    "registry": "https://artifactory.raiffeisen.ru/artifactory/api/npm/elbrus-d-npm"
   },
   "keywords": [
     "cryptoPro",
@@ -29,6 +29,7 @@
     "babel-plugin-add-module-exports": "^0.2.1",
     "babel-plugin-dynamic-import-node": "1.0.0",
     "babel-plugin-module-resolver": "2.7.1",
+    "babel-plugin-transform-async-to-generator": "^6.24.1",
     "babel-polyfill": "6.20.0",
     "babel-preset-airbnb": "^2.0.0",
     "babel-preset-env": "^1.6.1",
