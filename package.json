@@ -4,7 +4,7 @@
   "description": "CryptoProCsp",
   "main": "lib/index.js",
   "scripts": {
-    "prepare": "rm -rf ./dist/ && rm -rf ./lib/ && yarn run flow && npm run build && npm run compile",
+    "prepare": "rm -rf ./dist/ && rm -rf ./lib/ && yarn run flow && npm run compile",
     "run:compile": "babel  --plugins=add-module-exports --presets es2015,flow,stage-0 -d lib/ src/",
     "compile": "export NODE_ENV=production && export BABEL_ENV=production && npm run run:compile",
     "test": "NODE_ENV=development jest --no-cache"
