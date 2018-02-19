@@ -1,5 +1,5 @@
 {
-  "name": "@rbo/crypto-pro-csp",
+  "name": "crypto-pro-csp",
   "version": "1.0.0",
   "description": "CryptoProCsp",
   "main": "lib/cryptopro_csp.js",
@@ -8,9 +8,6 @@
     "run:compile": "babel  --plugins=add-module-exports --presets es2015,flow,stage-0 -d lib/ src/",
     "compile": "export NODE_ENV=production && export BABEL_ENV=production && npm run run:compile",
     "test": "NODE_ENV=development jest --no-cache"
-  },
-  "publishConfig": {
-    "registry": "https://artifactory.raiffeisen.ru/artifactory/api/npm/elbrus-d-npm"
   },
   "keywords": [
     "cryptoPro",

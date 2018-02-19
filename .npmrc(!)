@@ -1,0 +1,16 @@
+registry=https://artifactory.raiffeisen.ru/artifactory/api/npm/npm
+
+_auth = b3N0a3pkMTpBUFJNaGt0Nmh5d0JqQlNSQVR3dzdvVVU3WQ==
+always-auth = true
+email = Dmitry.KUZNETSOV@partners.raiffeisen.ru
+strict-ssl=false
+@rbo:registry=https://artifactory.raiffeisen.ru/artifactory/api/npm/elbrus-d-npm/
+//artifactory.raiffeisen.ru/artifactory/api/npm/elbrus-d-npm/:_password=QVBSTWhrdDZoeXdCakJTUkFUd3c3b1VVN1k=
+//artifactory.raiffeisen.ru/artifactory/api/npm/elbrus-d-npm/:username=ostkzd1
+//artifactory.raiffeisen.ru/artifactory/api/npm/elbrus-d-npm/:email=Dmitry.KUZNETSOV@partners.raiffeisen.ru
+//artifactory.raiffeisen.ru/artifactory/api/npm/elbrus-d-npm/:always-auth=true
+
+progress=false
+no_proxy=https://artifactory.raiffeisen.ru/
+no-proxy=https://artifactory.raiffeisen.ru/
+
