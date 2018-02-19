@@ -2,7 +2,7 @@
   "name": "@rbo/crypto-pro-csp",
   "version": "1.0.0",
   "description": "CryptoProCsp",
-  "main": "lib/index.js",
+  "main": "lib/cryptopro_csp.js",
   "scripts": {
     "prepare": "rm -rf ./dist/ && rm -rf ./lib/ && yarn run flow && npm run compile",
     "run:compile": "babel  --plugins=add-module-exports --presets es2015,flow,stage-0 -d lib/ src/",
